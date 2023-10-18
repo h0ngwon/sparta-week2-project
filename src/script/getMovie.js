@@ -78,13 +78,46 @@ const getFilteredMovie = async () => {
 
 	const data = await response.json();
 	const inputValue = movieInput.value;
-    const result = data.results;
-    const regx = new RegExp(inputValue, 'gi');
-    
-	result.forEach((d) => {
-		if(d.title.match(regx)) {
-            console.log(d);
-        }
+	const result = data.results;
+
+    //find patterns for matching input values
+	const regx = new RegExp(inputValue, 'gi');
+
+    //clear div
+	main.innerHTML = '';
+
+	result.forEach((data) => {
+		if (data.title.match(regx)) {
+
+			const card = document.createElement('div');
+			card.className = 'card';
+
+			const imgWrapper = document.createElement('div');
+			imgWrapper.className = 'img-wrapper';
+
+			const img = document.createElement('img');
+			img.src =
+				`${'https://image.tmdb.org/t/p/original'}` + data.poster_path;
+
+			const title = document.createElement('h3');
+			title.innerHTML = data.title;
+
+			const desc = document.createElement('div');
+			desc.className = 'desc';
+			desc.innerHTML = data.overview;
+
+			const rating = document.createElement('div');
+			rating.className = 'rating';
+			rating.innerHTML = 'rating : ' + data.vote_average;
+
+			imgWrapper.append(img);
+			card.append(imgWrapper);
+			card.append(title);
+			card.append(desc);
+			card.append(rating);
+
+			main.append(card);
+		}
 	});
 };
 
