@@ -38,10 +38,11 @@ const makeMovieCard = (data) => {
 	const card = document.createElement('div');
 	card.className = 'card';
 
-    card.addEventListener("click", (e) => {
-        e.preventDefault();
-        alert(data.id);
-    })
+	//when click alert movie data id
+	card.addEventListener('click', (e) => {
+		e.preventDefault();
+		alert(`data id : ${data.id}`);
+	});
 
 	const img = document.createElement('img');
 	img.src = `${'https://image.tmdb.org/t/p/original'}` + data.poster_path;
@@ -54,7 +55,7 @@ const makeMovieCard = (data) => {
 	desc.innerHTML = data.overview;
 
 	const rating = document.createElement('p');
-	rating.innerHTML = "rating : " + data.vote_average;
+	rating.innerHTML = 'rating : ' + data.vote_average;
 
 	card.append(img);
 	card.append(title);
