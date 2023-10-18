@@ -38,6 +38,11 @@ const makeMovieCard = (data) => {
 	const card = document.createElement('div');
 	card.className = 'card';
 
+    card.addEventListener("click", (e) => {
+        e.preventDefault();
+        alert(data.id);
+    })
+
 	const img = document.createElement('img');
 	img.src = `${'https://image.tmdb.org/t/p/original'}` + data.poster_path;
 
