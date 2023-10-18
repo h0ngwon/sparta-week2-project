@@ -1,5 +1,7 @@
 const searchButton = document.querySelector('.search-btn');
-const movieInput = document.querySelector("input")
+const movieInput = document.querySelector('input');
+const main = document.querySelector('.main');
+
 // button click test
 const searchBtnClick = (e) => {
 	e.preventDefault();
@@ -24,7 +26,37 @@ const getMovie = async () => {
 	);
 
 	const data = await response.json();
-	console.log(data);
+	console.log(data.results);
+
+	data.results.forEach((d) => {
+		makeMovieCard(d);
+	});
+};
+
+// make movie cards
+const makeMovieCard = (data) => {
+	const card = document.createElement('div');
+	card.className = 'card';
+
+	const img = document.createElement('img');
+	img.src = `${'https://image.tmdb.org/t/p/original'}` + data.poster_path;
+
+	const title = document.createElement('h3');
+	title.innerHTML = data.original_title;
+
+	const desc = document.createElement('p');
+	desc.className = 'desc';
+	desc.innerHTML = data.overview;
+
+	const rating = document.createElement('p');
+	rating.innerHTML = "rating : " + data.vote_average;
+
+	card.append(img);
+	card.append(title);
+	card.append(desc);
+	card.append(rating);
+
+	main.append(card);
 };
 
 // get filtered movie data
@@ -35,7 +67,6 @@ const getFilteredMovie = async () => {
 	);
 
 	const data = await response.json();
-	console.log(data);
 };
 
 // ----- when load -----
