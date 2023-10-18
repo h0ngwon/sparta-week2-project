@@ -27,7 +27,6 @@ const getMovie = async () => {
 
 	const data = await response.json();
 	console.log(data.results);
-
 	data.results.forEach((d) => {
 		makeMovieCard(d);
 	});
@@ -44,20 +43,25 @@ const makeMovieCard = (data) => {
 		alert(`data id : ${data.id}`);
 	});
 
+	const imgWrapper = document.createElement('div');
+	imgWrapper.className = 'img-wrapper';
+
 	const img = document.createElement('img');
 	img.src = `${'https://image.tmdb.org/t/p/original'}` + data.poster_path;
 
 	const title = document.createElement('h3');
-	title.innerHTML = data.original_title;
+	title.innerHTML = data.title;
 
-	const desc = document.createElement('p');
+	const desc = document.createElement('div');
 	desc.className = 'desc';
 	desc.innerHTML = data.overview;
 
-	const rating = document.createElement('p');
+	const rating = document.createElement('div');
+	rating.className = 'rating';
 	rating.innerHTML = 'rating : ' + data.vote_average;
 
-	card.append(img);
+	imgWrapper.append(img);
+	card.append(imgWrapper);
 	card.append(title);
 	card.append(desc);
 	card.append(rating);
@@ -73,6 +77,15 @@ const getFilteredMovie = async () => {
 	);
 
 	const data = await response.json();
+	const inputValue = movieInput.value;
+    const result = data.results;
+    const regx = new RegExp(inputValue, 'gi');
+    
+	result.forEach((d) => {
+		if(d.title.match(regx)) {
+            console.log(d);
+        }
+	});
 };
 
 // ----- when load -----
