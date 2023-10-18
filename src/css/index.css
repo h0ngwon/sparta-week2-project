@@ -1,11 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap');
+
+* {
+	font-family: 'Nanum Gothic', sans-serif;
+}
+
 body {
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
+	background: #f0f4fb;
 }
 
 .container {
-    display: flex;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.header {
+	width: 100%;
+	text-align: center;
+	color: #00adf2;
+}
+
+.hedaer h1 {
+	width: 100%;
+}
+
+.form-wrapper {
+	width: 70%;
+	margin: 2rem;
+	padding: 1rem;
+	border-radius: 5rem;
+}
+
+.search-form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.movie-input {
+	font-size: 2rem;
+	margin: 1.5rem;
+	border: none;
+	outline: 0.2rem solid #00adf2;
+	padding: 1.1rem;
+}
+
+.search-btn {
+	font-size: 1.6rem;
+	border: none;
+	background-color: #00adf2;
+	color: #fff;
+	border-radius: 50%;
+	padding: 1.1rem;
+	cursor: pointer;
+}
+
+.search-btn:hover,
+.search-btn:active {
+	background-color: #0074a2;
+}
+
+.main {
+	display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
+}
+
+.card {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	margin: 1rem;
+	border-radius: 2rem;
+	background: #fff;
+    cursor: pointer;
+}
+
+.card:hover {
+	box-shadow: 0 1rem 2rem 0 rgb(34, 68, 128, 0.2);
+}
+
+.card img {
+	width: 25rem;
+	border-radius: 2rem;
 }

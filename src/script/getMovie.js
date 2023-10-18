@@ -1,5 +1,5 @@
 const searchButton = document.querySelector('.search-btn');
-
+const movieInput = document.querySelector("input")
 // button click test
 const searchBtnClick = (e) => {
 	e.preventDefault();
@@ -16,7 +16,8 @@ const options = {
 	},
 };
 
-const getMovieData = async () => {
+// get movie data
+const getMovie = async () => {
 	const response = await fetch(
 		'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1',
 		options
@@ -26,8 +27,8 @@ const getMovieData = async () => {
 	console.log(data);
 };
 
-// get movie data function
-const getFilteredTopRatedMovie = async () => {
+// get filtered movie data
+const getFilteredMovie = async () => {
 	const response = await fetch(
 		'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1',
 		options
@@ -37,5 +38,8 @@ const getFilteredTopRatedMovie = async () => {
 	console.log(data);
 };
 
-searchButton.addEventListener('click', getFilteredTopRatedMovie);
-window.onload = getMovieData;
+// ----- when load -----
+window.onload = getMovie;
+movieInput.focus();
+
+searchButton.addEventListener('click', getFilteredMovie);
