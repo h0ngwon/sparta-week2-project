@@ -18,16 +18,23 @@ const options = {
 	},
 };
 
-// get movie data
-const getMovie = async () => {
+// getData
+const getData = async () => {
 	const response = await fetch(
 		'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1',
 		options
 	);
-
 	const data = await response.json();
 
-	data.results.forEach((d) => {
+	return data;
+};
+
+// make movies
+const makeMovie = async () => {
+	const data = await getData();
+    const result = data.results;
+    
+	result.forEach((d) => {
 		makeMovieCard(d);
 	});
 };
@@ -46,7 +53,7 @@ const makeCard = (tagName, className, data) => {
 	return card;
 };
 
-// make movie cards
+// make movie cards with information
 const makeMovieCard = (data) => {
 	const card = makeCard('div', 'card', data);
 	const imgWrapper = createImgWrapper('div', 'img-wrapper');
@@ -65,12 +72,7 @@ const makeMovieCard = (data) => {
 
 // get filtered movie data
 const getFilteredMovie = async () => {
-	const response = await fetch(
-		'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1',
-		options
-	);
-
-	const data = await response.json();
+	const data = await getData();
 	const inputValue = movieInput.value;
 	const result = data.results;
 
@@ -85,7 +87,11 @@ const getFilteredMovie = async () => {
 			makeMovieCard(data);
 		}
 	});
+
+	movieInput.focus();
+	movieInput.value = '';
 };
+
 
 const createImgWrapper = (tagName, className) => {
 	const element = document.createElement(tagName);
@@ -131,7 +137,7 @@ const appendChildren = (parent, children) => {
 };
 
 // ----- when load -----
-window.onload = getMovie;
+window.onload = makeMovie;
 
 movieInput.focus();
 movieInput.value = '';
