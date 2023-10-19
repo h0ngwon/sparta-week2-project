@@ -26,16 +26,16 @@ const getMovie = async () => {
 	);
 
 	const data = await response.json();
-	console.log(data.results);
+
 	data.results.forEach((d) => {
 		makeMovieCard(d);
 	});
 };
 
-// make movie cards
-const makeMovieCard = (data) => {
-	const card = document.createElement('div');
-	card.className = 'card';
+//make card
+const makeCard = (tagName, className, data) => {
+	const card = document.createElement(tagName);
+	card.className = className;
 
 	//when click alert movie data id
 	card.addEventListener('click', (e) => {
@@ -43,30 +43,24 @@ const makeMovieCard = (data) => {
 		alert(`data id : ${data.id}`);
 	});
 
-	const imgWrapper = document.createElement('div');
-	imgWrapper.className = 'img-wrapper';
+	return card;
+};
 
-	const img = document.createElement('img');
-	img.src = `${'https://image.tmdb.org/t/p/original'}` + data.poster_path;
+// make movie cards
+const makeMovieCard = (data) => {
+	const card = makeCard('div', 'card', data);
+	const imgWrapper = createImgWrapper('div', 'img-wrapper');
+	const img = createImage(
+		'img',
+		`${'https://image.tmdb.org/t/p/original'}` + data.poster_path
+	);
+	const title = createTitle('h3', data.title);
+	const desc = createDesc('div', 'desc', data.overview);
+	const rating = createRating('div', 'rating', data.vote_average);
 
-	const title = document.createElement('h3');
-	title.innerHTML = data.title;
-
-	const desc = document.createElement('div');
-	desc.className = 'desc';
-	desc.innerHTML = data.overview;
-
-	const rating = document.createElement('div');
-	rating.className = 'rating';
-	rating.innerHTML = 'rating : ' + data.vote_average;
-
-	imgWrapper.append(img);
-	card.append(imgWrapper);
-	card.append(title);
-	card.append(desc);
-	card.append(rating);
-
-	main.append(card);
+	appendChildren(imgWrapper, [img]);
+	appendChildren(card, [imgWrapper, title, desc, rating]);
+	appendChildren(main, [card]);
 };
 
 // get filtered movie data
@@ -80,49 +74,66 @@ const getFilteredMovie = async () => {
 	const inputValue = movieInput.value;
 	const result = data.results;
 
-    //find patterns for matching input values
+	//find patterns for matching input values
 	const regx = new RegExp(inputValue, 'gi');
 
-    //clear div
+	//clear div
 	main.innerHTML = '';
 
 	result.forEach((data) => {
 		if (data.title.match(regx)) {
-
-			const card = document.createElement('div');
-			card.className = 'card';
-
-			const imgWrapper = document.createElement('div');
-			imgWrapper.className = 'img-wrapper';
-
-			const img = document.createElement('img');
-			img.src =
-				`${'https://image.tmdb.org/t/p/original'}` + data.poster_path;
-
-			const title = document.createElement('h3');
-			title.innerHTML = data.title;
-
-			const desc = document.createElement('div');
-			desc.className = 'desc';
-			desc.innerHTML = data.overview;
-
-			const rating = document.createElement('div');
-			rating.className = 'rating';
-			rating.innerHTML = 'rating : ' + data.vote_average;
-
-			imgWrapper.append(img);
-			card.append(imgWrapper);
-			card.append(title);
-			card.append(desc);
-			card.append(rating);
-
-			main.append(card);
+			makeMovieCard(data);
 		}
+	});
+};
+
+const createImgWrapper = (tagName, className) => {
+	const element = document.createElement(tagName);
+	element.className = className;
+
+	return element;
+};
+
+const createImage = (tagName, imageSrc) => {
+	const element = document.createElement(tagName);
+	element.src = imageSrc;
+
+	return element;
+};
+
+const createTitle = (tagName, title) => {
+	const element = document.createElement(tagName);
+	element.innerHTML = title;
+
+	return element;
+};
+
+const createDesc = (tagName, className, desc) => {
+	const element = document.createElement(tagName);
+	element.className = className;
+	element.innerHTML = desc;
+
+	return element;
+};
+
+const createRating = (tagName, className, rating) => {
+	const element = document.createElement(tagName);
+	element.className = className;
+	element.innerHTML = 'rating : ' + rating;
+
+	return element;
+};
+
+const appendChildren = (parent, children) => {
+	children.forEach((child) => {
+		parent.append(child);
 	});
 };
 
 // ----- when load -----
 window.onload = getMovie;
+
 movieInput.focus();
+movieInput.value = '';
 
 searchButton.addEventListener('click', getFilteredMovie);

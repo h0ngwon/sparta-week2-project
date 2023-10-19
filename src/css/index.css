@@ -23,9 +23,24 @@ body {
 	color: #00adf2;
 }
 
+.header a {
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.header a:visited {
+    color: #00adf2;
+}
+
+.header a:hover {
+    color : #16566f;
+    transition: 0.2s ease;
+}
+
 .hedaer h1 {
 	width: 100%;
 }
+
 
 .form-wrapper {
 	width: 70%;
