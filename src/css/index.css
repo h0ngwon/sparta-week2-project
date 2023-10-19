@@ -100,9 +100,12 @@ body {
 	background: #fff;
 	cursor: pointer;
     position: relative;
+    transition: 0.4s ease-out;
 }
 
 .card:hover {
+    transform: scale(1.1);
+    transition: 0.4s ease-in;
 	box-shadow: 0 1rem 2rem 0 rgb(34, 68, 128, 0.2);
 }
 
