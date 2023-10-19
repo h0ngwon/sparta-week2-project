@@ -1,6 +1,9 @@
 const searchButton = document.querySelector('.search-btn');
 const movieInput = document.querySelector('input');
 const main = document.querySelector('.main');
+const API_KEY = config.API_KEY;
+
+console.log(API_KEY);
 
 // button click test
 const searchBtnClick = (e) => {
@@ -14,14 +17,14 @@ const options = {
 	headers: {
 		accept: 'application/json',
 		Authorization:
-			'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkOWUyMGU0ZmIxNTBiZDJmMWI0MjVmMjIxNWE2YmRjYiIsInN1YiI6IjYxZmJhNjlhY2I4MDI4NGFjZmYzYTk1OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.s0qfKixPyi99zIoSgu_oryvWZFRdCJp2ffSoPC-VCX0',
+        API_KEY
 	},
 };
 
 // getData
 const getData = async () => {
 	const response = await fetch(
-		'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1',
+		'https://api.themoviedb.org/3/movie/top_rated?language=en-US',
 		options
 	);
 	const data = await response.json();
@@ -65,8 +68,8 @@ const makeMovieCard = (data) => {
 	const desc = createDesc('div', 'desc', data.overview);
 	const rating = createRating('div', 'rating', data.vote_average);
 
-	appendChildren(imgWrapper, [img]);
 	appendChildren(card, [imgWrapper, title, desc, rating]);
+    appendChildren(imgWrapper, [img]);
 	appendChildren(main, [card]);
 };
 
