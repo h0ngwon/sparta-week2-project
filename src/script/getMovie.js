@@ -3,8 +3,6 @@ const movieInput = document.querySelector('input');
 const main = document.querySelector('.main');
 const API_KEY = config.API_KEY;
 
-console.log(API_KEY);
-
 // button click test
 const searchBtnClick = (e) => {
 	e.preventDefault();
