@@ -22,7 +22,7 @@ const options = {
 // getData
 const getData = async () => {
 	const response = await fetch(
-		'https://api.themoviedb.org/3/movie/top_rated?language=en-US',
+		'https://api.themoviedb.org/3/movie/top_rated?language=ko-KR',
 		options
 	);
 	const data = await response.json();
@@ -131,7 +131,7 @@ const createDesc = (tagName, className, desc) => {
 const createRating = (tagName, className, rating) => {
 	const element = document.createElement(tagName);
 	element.className = className;
-	element.innerHTML = 'rating : ' + rating;
+	element.innerHTML = '평점 : ' + rating;
 
 	return element;
 };

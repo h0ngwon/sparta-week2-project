@@ -24,23 +24,22 @@ body {
 }
 
 .header a {
-    text-decoration: none;
-    transition: 0.2s ease;
+	text-decoration: none;
+	transition: 0.2s ease;
 }
 
 .header a:visited {
-    color: #00adf2;
+	color: #00adf2;
 }
 
 .header a:hover {
-    color : #16566f;
-    transition: 0.2s ease;
+	color: #16566f;
+	transition: 0.2s ease;
 }
 
 .hedaer h1 {
 	width: 100%;
 }
-
 
 .form-wrapper {
 	width: 70%;
@@ -65,7 +64,7 @@ body {
 }
 
 .movie-input:focus {
-    outline: 0.2rem solid #c34116;
+	outline: 0.2rem solid #c34116;
 }
 
 .search-btn {
@@ -99,24 +98,26 @@ body {
 	border-radius: 2rem;
 	background: #fff;
 	cursor: pointer;
-    position: relative;
-    transition: 0.4s ease-out;
+	position: relative;
+	transition: 0.4s ease-out;
 }
 
 .card:hover {
-    transform: scale(1.1);
-    transition: 0.4s ease-in;
+	transform: scale(1.1);
+	transition: 0.4s ease-in;
 	box-shadow: 0 1rem 2rem 0 rgb(34, 68, 128, 0.2);
 }
 
 .img-wrapper {
 	width: 100%;
+	height: 30rem;
 }
 
 .img-wrapper img {
 	width: 100%;
+	height: 100%;
 	border-radius: 2rem;
-	object-fit: contain;
+	object-fit: cover;
 }
 
 .card h3 {
@@ -131,9 +132,12 @@ body {
 }
 
 .rating {
-    position:absolute;
+	margin: 1rem;
+	position: absolute;
 	width: 100%;
-    bottom:0;
+	bottom: 0;
 	text-align: center;
-    margin-bottom: 1rem;
+	margin-bottom: 1rem;
+    background: #d5dce6;
+    border-radius: 1rem;
 }
