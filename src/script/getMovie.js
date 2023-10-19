@@ -92,7 +92,7 @@ const getFilteredMovie = async (movieName) => {
 	movieInput.focus();
 };
 
-movieInput.addEventListener('keyup', (e) => {
+const searchWhenEnteredPressed = movieInput.addEventListener('keyup', (e) => {
 	if (e.key === 'Enter') {
 		getFilteredMovie(e.currentTarget.value);
 	}
