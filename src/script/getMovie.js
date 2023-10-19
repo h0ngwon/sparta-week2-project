@@ -32,8 +32,8 @@ const getData = async () => {
 // make movies
 const makeMovie = async () => {
 	const data = await getData();
-    const result = data.results;
-    
+	const result = data.results;
+
 	result.forEach((d) => {
 		makeMovieCard(d);
 	});
@@ -71,15 +71,16 @@ const makeMovieCard = (data) => {
 };
 
 // get filtered movie data
-const getFilteredMovie = async () => {
+const getFilteredMovie = async (movieName) => {
 	const data = await getData();
-	const inputValue = movieInput.value;
 	const result = data.results;
+	let inputValue = movieInput.value;
+    const regx = new RegExp(inputValue, 'gi'); //find patterns for matching input values
 
-	//find patterns for matching input values
-	const regx = new RegExp(inputValue, 'gi');
+	if (movieName) {
+		inputValue = movieName;
+	}
 
-	//clear div
 	main.innerHTML = '';
 
 	result.forEach((data) => {
@@ -89,9 +90,13 @@ const getFilteredMovie = async () => {
 	});
 
 	movieInput.focus();
-	movieInput.value = '';
 };
 
+movieInput.addEventListener('keyup', (e) => {
+	if (e.key === 'Enter') {
+		getFilteredMovie(e.currentTarget.value);
+	}
+});
 
 const createImgWrapper = (tagName, className) => {
 	const element = document.createElement(tagName);

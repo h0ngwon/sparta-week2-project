@@ -12,12 +12,18 @@
 				<a href="./index.html"><h1>시네마 천국</h1></a>
 			</div>
 			<div class="form-wrapper">
-				<form id="search-form" class="search-form">
+				<form
+					id="search-form"
+					class="search-form"
+					onsubmit="return false"
+					action=""
+				>
 					<input
 						id="title"
 						class="movie-input"
 						type="text"
 						placeholder="영화제목 입력"
+						required
 					/>
 					<button id="search" class="search-btn" type="button">
 						검색

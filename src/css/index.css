@@ -64,6 +64,10 @@ body {
 	padding: 1.1rem;
 }
 
+.movie-input:focus {
+    outline: 0.2rem solid #c34116;
+}
+
 .search-btn {
 	font-size: 1.6rem;
 	border: none;
