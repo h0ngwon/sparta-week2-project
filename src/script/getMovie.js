@@ -89,15 +89,16 @@ const getFilteredMovie = async (movieName) => {
 			makeMovieCard(data);
 		}
 	});
-
-	movieInput.focus();
 };
 
 const searchWhenEnteredPressed = movieInput.addEventListener('keyup', (e) => {
 	if (e.key === 'Enter') {
 		getFilteredMovie(e.currentTarget.value);
 	}
+    
+    getFilteredMovie(e.currentTarget.value);
 });
+
 
 const createImgWrapper = (tagName, className) => {
 	const element = document.createElement(tagName);
@@ -145,7 +146,5 @@ const appendChildren = (parent, children) => {
 // ----- when load -----
 window.onload = makeMovie;
 
-movieInput.focus();
 movieInput.value = '';
-
 searchButton.addEventListener('click', getFilteredMovie);
