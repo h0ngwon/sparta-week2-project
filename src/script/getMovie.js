@@ -1,7 +1,9 @@
 const searchButton = document.querySelector('.search-btn');
+const moreButton = document.querySelector('.more');
 const movieInput = document.querySelector('input');
 const main = document.querySelector('.main');
 const API_KEY = config.API_KEY;
+let page = 1;
 
 // fetch option for TMDB
 const options = {
@@ -16,7 +18,7 @@ const options = {
 // getData
 const getData = async () => {
 	const response = await fetch(
-		'https://api.themoviedb.org/3/movie/top_rated?language=ko-KR',
+		`https://api.themoviedb.org/3/movie/top_rated?language=ko-KR&page=${page}`,
 		options
 	);
 	const data = await response.json();
@@ -84,6 +86,11 @@ const getFilteredMovie = async (movieName) => {
 		}
 	});
 };
+
+const getMoreMovieData = moreButton.addEventListener('click', async (e) => {
+    page++;
+    makeMovie();
+})
 
 const searchWhenInput = movieInput.addEventListener('keyup', (e) => {
     getFilteredMovie(e.currentTarget.value);
