@@ -129,6 +129,8 @@ body {
 
 .desc {
 	padding: 1rem;
+	overflow: hidden;
+	height: 30rem;
 }
 
 .rating {
@@ -138,20 +140,32 @@ body {
 	bottom: 0;
 	text-align: center;
 	margin-bottom: 1rem;
-    background: #d5dce6;
-    border-radius: 1rem;
+	background: #d5dce6;
+	border-radius: 1rem;
 }
 
 .more {
-    width: 100%;
-    font-size: 2rem;;
-    margin: 3rem;
-    border:none;
-    background: #00adf2;
-    color: #fff;
-    cursor: pointer;
+	width: 100%;
+	font-size: 2rem;
+	margin: 3rem;
+	border: none;
+	background: #00adf2;
+	color: #fff;
+	cursor: pointer;
 }
 
 .more:active {
-    background:#01668e
+	background: #01668e;
+}
+
+.top {
+	position: fixed;
+	top: 1rem;
+	right: 2rem;
+}
+
+.top a {
+	color: #00adf2;
+	text-decoration: none;
+	font-size: 2rem;
 }

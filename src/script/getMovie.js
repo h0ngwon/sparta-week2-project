@@ -4,14 +4,14 @@ const movieInput = document.querySelector('input');
 const main = document.querySelector('.main');
 const API_KEY = config.API_KEY;
 let page = 1;
+let movieData = [];
 
 // fetch option for TMDB
 const options = {
 	method: 'GET',
 	headers: {
 		accept: 'application/json',
-		Authorization:
-        API_KEY
+		Authorization: API_KEY,
 	},
 };
 
@@ -31,11 +31,16 @@ const makeMovie = async () => {
 	const data = await getData();
 	const result = data.results;
 
+	if (movieData.length === 0) { // copy no data on first call
+		result.forEach((r) => {
+			movieData.push(r);
+		});
+	}
+
 	result.forEach((d) => {
 		makeMovieCard(d);
 	});
 };
-
 //make card
 const makeCard = (tagName, className, data) => {
 	const card = document.createElement(tagName);
@@ -63,16 +68,15 @@ const makeMovieCard = (data) => {
 	const rating = createRating('div', 'rating', data.vote_average);
 
 	appendChildren(card, [imgWrapper, title, desc, rating]);
-    appendChildren(imgWrapper, [img]);
+	appendChildren(imgWrapper, [img]);
 	appendChildren(main, [card]);
 };
 
 // get filtered movie data
 const getFilteredMovie = async (movieName) => {
-	const data = await getData();
-	const result = data.results;
+	const data = document.querySelectorAll('.card');
 	let inputValue = movieInput.value;
-    const regx = new RegExp(inputValue, 'gi'); //find patterns for matching input values
+	const regx = new RegExp(inputValue, 'gi'); //find patterns for matching input values
 
 	if (movieName) {
 		inputValue = movieName;
@@ -80,22 +84,30 @@ const getFilteredMovie = async (movieName) => {
 
 	main.innerHTML = '';
 
-	result.forEach((data) => {
+	movieData.forEach((data) => {
 		if (data.title.match(regx)) {
 			makeMovieCard(data);
 		}
 	});
 };
 
+// get more movies
 const getMoreMovieData = moreButton.addEventListener('click', async (e) => {
-    page++;
-    makeMovie();
-})
+	page++;
+	const data = await getData();
+	const result = data.results;
 
-const searchWhenInput = movieInput.addEventListener('keyup', (e) => {
-    getFilteredMovie(e.currentTarget.value);
+	result.forEach((r) => {
+		movieData.push(r);
+	});
+
+	makeMovie();
 });
 
+// search movies
+const searchWhenInput = movieInput.addEventListener('keyup', (e) => {
+	getFilteredMovie(e.currentTarget.value);
+});
 
 const createImgWrapper = (tagName, className) => {
 	const element = document.createElement(tagName);
