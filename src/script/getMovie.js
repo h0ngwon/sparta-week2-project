@@ -3,12 +3,6 @@ const movieInput = document.querySelector('input');
 const main = document.querySelector('.main');
 const API_KEY = config.API_KEY;
 
-// button click test
-const searchBtnClick = (e) => {
-	e.preventDefault();
-	console.log('click');
-};
-
 // fetch option for TMDB
 const options = {
 	method: 'GET',
