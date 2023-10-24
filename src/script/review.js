@@ -6,11 +6,11 @@ const review = document.getElementById('review');
 
 const reviewGroup = document.querySelector('.review-group');
 
+let storage = [];
+
 // 리뷰 등록
 const submitReview = (e) => {
   e.preventDefault();
-  let storage = [];
-
   const userReview = {
     name: userName.value,
     password: password.value,
@@ -19,7 +19,6 @@ const submitReview = (e) => {
   };
 
   storage.push(userReview);
-  console.log(storage);
   localStorage.setItem('reviews', JSON.stringify(storage));
 
   userName.value = '';
@@ -37,11 +36,13 @@ const getReview = () => {
   const reviewCard = reviewResult
     .map((review) => {
       return `
-        <span>${review.name}(${review.rating})</span>
-        <button>수정</button>
-        <button>삭제</button>
         <div>
-          ${review.review}
+          <span>${review.name}(${review.rating})</span>
+          <button>수정</button>
+          <button class="delete-btn" onclick="deleteReview(${review.password})">삭제</button>
+          <p>
+            ${review.review}
+          </p>
         </div>
   `;
     })
@@ -49,4 +50,11 @@ const getReview = () => {
   reviewGroup.innerHTML = reviewCard;
 };
 
+const deleteBtn = document.querySelector('.delete-btn');
+
+const deleteReview = () => {
+  console.log('click');
+};
+
 reviewForm.addEventListener('submit', submitReview);
+deleteBtn.addEventListener('click', deleteReview);
