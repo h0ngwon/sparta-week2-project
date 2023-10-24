@@ -31,7 +31,8 @@ const makeMovie = async () => {
 	const data = await getData();
 	const result = data.results;
 
-	if (movieData.length === 0) { // copy no data on first call
+	if (movieData.length === 0) {
+		// copy no data on first call
 		result.forEach((r) => {
 			movieData.push(r);
 		});
@@ -48,8 +49,8 @@ const makeCard = (tagName, className, data) => {
 
 	//when click alert movie data id
 	card.addEventListener('click', (e) => {
-		e.preventDefault();
-		alert(`data id : ${data.id}`);
+		localStorage.setItem('movieId', data.id);
+		window.location.href = 'details.html';
 	});
 
 	return card;
