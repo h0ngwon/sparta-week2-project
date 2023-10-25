@@ -7,7 +7,9 @@ const review = document.getElementById('review');
 const reviewGroup = document.querySelector('.review-group');
 const deleteBtn = document.querySelectorAll('.delete-btn');
 
-let storage = JSON.parse(localStorage.getItem('reviews')) || [];
+let storageMovieId = localStorage.getItem('movieId');
+console.log(storageMovieId);
+let storage = JSON.parse(localStorage.getItem(`${storageMovieId}`)) || [];
 let id = storage.length;
 
 // 새 리뷰
@@ -27,7 +29,10 @@ const submitReview = (e) => {
 
 // 리뷰 저장
 const saveReview = () => {
-  localStorage.setItem('reviews', JSON.stringify(storage));
+  localStorage.setItem(
+    `${localStorage.getItem('movieId')}`,
+    JSON.stringify(storage)
+  );
   getReview();
 };
 
