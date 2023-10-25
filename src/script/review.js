@@ -7,8 +7,8 @@ const review = document.getElementById('review');
 const reviewGroup = document.querySelector('.review-group');
 const deleteBtn = document.querySelectorAll('.delete-btn');
 
-let storage = [];
-let id = 0;
+let storage = JSON.parse(localStorage.getItem('reviews')) || [];
+let id = storage.length;
 
 // 새 리뷰
 const submitReview = (e) => {
@@ -20,28 +20,19 @@ const submitReview = (e) => {
     review: review.value,
     id: id++,
   };
-  userName.value = '';
-  password.value = '';
-  rating.value = '⭐';
-  review.value = '';
-
-  saveReview(userReview);
+  storage.push(userReview);
+  reviewForm.reset();
+  saveReview();
 };
 
 // 리뷰 저장
-const saveReview = (userReview) => {
-  storage.push(userReview);
+const saveReview = () => {
   localStorage.setItem('reviews', JSON.stringify(storage));
   getReview();
 };
 
 // 리뷰 가져오기
 const getReview = () => {
-  storage = JSON.parse(localStorage.getItem('reviews'));
-  console.log(storage);
-  if (storage === null) {
-    return;
-  }
   const reviewCard = storage
     .map((review) => {
       return `
@@ -59,14 +50,12 @@ const getReview = () => {
   reviewGroup.innerHTML = reviewCard;
 };
 
+// 리뷰 삭제
 const deleteReview = (id) => {
-  console.log('click');
-  // storage = storage.filter((review) => review.id !== id);
-  // localStorage.setItem('reviews', JSON.stringify(storage));
-  // getReview();
+  storage = storage.filter((review) => review.id !== id);
+  saveReview();
 };
 
 getReview();
 
 reviewForm.addEventListener('submit', submitReview);
-// deleteBtn.addEventListener('click', deleteReview);
