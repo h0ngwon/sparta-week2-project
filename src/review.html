@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script defer src="./script/review.js"></script>
+  </head>
+  <body>
+    <form class="review-form">
+      <div class="input-group">
+        <div>
+          <label for="name">이름</label>
+          <input id="name" type="text" />
+        </div>
+        <div>
+          <label for="password">비밀번호</label>
+          <input id="password" type="text" />
+        </div>
+        <div>
+          <label for="rating">평점</label>
+          <select name="rating" id="rating">
+            <option value="⭐">⭐</option>
+            <option value="⭐⭐">⭐⭐</option>
+            <option value="⭐⭐⭐">⭐⭐⭐</option>
+            <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
+            <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
+          </select>
+        </div>
+        <div>
+          <label for="review">리뷰</label>
+          <textarea id="review" type="text"> </textarea>
+        </div>
+      </div>
+      <button>등록</button>
+    </form>
+
+    <section class="review-section">
+      <h3>리뷰</h3>
+      <div class="review-group"></div>
+    </section>
+  </body>
+</html>
