@@ -1,16 +1,17 @@
-const searchButton = document.querySelector('.search-btn');
-const moreButton = document.querySelector('.more');
-const movieInput = document.querySelector('input');
-const main = document.querySelector('.main');
+const searchButton = document.querySelector(".search-btn");
+const moreButton = document.querySelector(".more");
+const searchForm = document.querySelector(".search-form"); // submit 기능 위해서 search-form 추가
+const movieInput = document.querySelector("input");
+const main = document.querySelector(".main");
 const API_KEY = config.API_KEY;
 let page = 1;
 let movieData = [];
 
 // fetch option for TMDB
 const options = {
-	method: 'GET',
+	method: "GET",
 	headers: {
-		accept: 'application/json',
+		accept: "application/json",
 		Authorization: API_KEY,
 	},
 };
@@ -48,9 +49,9 @@ const makeCard = (tagName, className, data) => {
 	card.className = className;
 
 	//when click alert movie data id
-	card.addEventListener('click', (e) => {
-		localStorage.setItem('movieId', data.id);
-		window.location.href = 'details.html';
+	card.addEventListener("click", (e) => {
+		localStorage.setItem("movieId", data.id);
+		window.location.href = "details.html";
 	});
 
 	return card;
@@ -58,15 +59,15 @@ const makeCard = (tagName, className, data) => {
 
 // make movie cards with information
 const makeMovieCard = (data) => {
-	const card = makeCard('div', 'card', data);
-	const imgWrapper = createImgWrapper('div', 'img-wrapper');
+	const card = makeCard("div", "card", data);
+	const imgWrapper = createImgWrapper("div", "img-wrapper");
 	const img = createImage(
-		'img',
-		`${'https://image.tmdb.org/t/p/original'}` + data.poster_path
+		"img",
+		`${"https://image.tmdb.org/t/p/original"}` + data.poster_path
 	);
-	const title = createTitle('h3', data.title);
-	const desc = createDesc('div', 'desc', data.overview);
-	const rating = createRating('div', 'rating', data.vote_average);
+	const title = createTitle("h3", data.title);
+	const desc = createDesc("div", "desc", data.overview);
+	const rating = createRating("div", "rating", data.vote_average);
 
 	appendChildren(card, [imgWrapper, title, desc, rating]);
 	appendChildren(imgWrapper, [img]);
@@ -75,25 +76,42 @@ const makeMovieCard = (data) => {
 
 // get filtered movie data
 const getFilteredMovie = async (movieName) => {
-	const data = document.querySelectorAll('.card');
+	const data = document.querySelectorAll(".card");
 	let inputValue = movieInput.value;
-	const regx = new RegExp(inputValue, 'gi'); //find patterns for matching input values
+	const regx = new RegExp(inputValue, "gi"); //find patterns for matching input values
+
+	if (inputValue.length === 0) {
+		alert("검색어를 입력해주세요.");
+	}
 
 	if (movieName) {
 		inputValue = movieName;
 	}
 
-	main.innerHTML = '';
+	main.innerHTML = "";
+
+	let foundMatch = false;
 
 	movieData.forEach((data) => {
 		if (data.title.match(regx)) {
 			makeMovieCard(data);
+			foundMatch = true;
 		}
 	});
+
+	if (!foundMatch) {
+		main.innerHTML += "검색 결과가 없습니다.";
+	}
+
+	//   movieData.forEach((data) => {
+	//   	if (data.title.match(regx)) {
+	//   		makeMovieCard(data);
+	//   	}
+	//   });
 };
 
 // get more movies
-const getMoreMovieData = moreButton.addEventListener('click', async (e) => {
+const getMoreMovieData = moreButton.addEventListener("click", async (e) => {
 	page++;
 	const data = await getData();
 	const result = data.results;
@@ -106,9 +124,10 @@ const getMoreMovieData = moreButton.addEventListener('click', async (e) => {
 });
 
 // search movies
-const searchWhenInput = movieInput.addEventListener('keyup', (e) => {
-	getFilteredMovie(e.currentTarget.value);
+const searchWhenInput = searchForm.addEventListener("submit", (e) => {
+	getFilteredMovie();
 });
+// searchForm으로 변경하고 submit으로 변경
 
 const createImgWrapper = (tagName, className) => {
 	const element = document.createElement(tagName);
@@ -142,7 +161,7 @@ const createDesc = (tagName, className, desc) => {
 const createRating = (tagName, className, rating) => {
 	const element = document.createElement(tagName);
 	element.className = className;
-	element.innerHTML = '평점 : ' + rating;
+	element.innerHTML = "평점 : " + rating;
 
 	return element;
 };
@@ -156,5 +175,5 @@ const appendChildren = (parent, children) => {
 // ----- when load -----
 window.onload = makeMovie;
 
-movieInput.value = '';
-searchButton.addEventListener('click', getFilteredMovie);
+movieInput.value = "";
+searchButton.addEventListener("click", getFilteredMovie);

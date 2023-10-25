@@ -39,7 +39,7 @@ const getReview = () => {
         <div>
           <span>${review.name}(${review.rating})</span>
           <button>수정</button>
-          <button class="delete-btn" type="button" onclick="deleteReview(${review.id})">삭제</button>
+          <button class="delete-btn" onclick="deleteReview(${review.id})">삭제</button>
           <p>
             ${review.review}
           </p>

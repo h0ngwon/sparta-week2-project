@@ -62,7 +62,7 @@ const appendChildren = (parent, children) => {
 };
 
 backBtn.addEventListener("click", (e) => {
-    window.history.back();
+	window.history.back();
 });
 
 makeMovieDetail();
