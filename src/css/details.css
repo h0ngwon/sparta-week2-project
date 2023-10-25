@@ -50,13 +50,13 @@ img {
 	font-size: 32px;
 	border-radius: 50px;
 	border: 2px solid #fff;
-    color: white;
-    cursor: pointer;
-    background:-webkit-linear-gradient(0deg, transparent 50%, #555555 50%);
-    background-size: 600px;
-    transition: 0.8s;
+	color: white;
+	cursor: pointer;
+	background: -webkit-linear-gradient(0deg, transparent 50%, #555555 50%);
+	background-size: 600px;
+	transition: 0.8s;
 }
 
-.back_button:hover{
-    background-position: 300px;
+.back_button:hover {
+	background-position: 300px;
 }
