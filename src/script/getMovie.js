@@ -50,8 +50,8 @@ const makeCard = (tagName, className, data) => {
 
     //when click alert movie data id
     card.addEventListener("click", (e) => {
-        e.preventDefault();
-        alert(`data id : ${data.id}`);
+        localStorage.setItem("movieId", data.id);
+        window.location.href = "details.html";
     });
 
     return card;
