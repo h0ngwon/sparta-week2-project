@@ -3,13 +3,11 @@ const userName = document.getElementById("name");
 const password = document.getElementById("password");
 const rating = document.getElementById("rating");
 const review = document.getElementById("review");
-
 const reviewGroup = document.querySelector(".review-group");
 const deleteBtn = document.querySelectorAll(".delete-btn");
 
 let storageMovieId = localStorage.getItem("movieId");
-console.log(storageMovieId);
-let storage = JSON.parse(localStorage.getItem(`${storageMovieId}`)) || [];
+let storage = JSON.parse(localStorage.getItem(storageMovieId)) || [];
 let id = storage.length;
 
 // 새 리뷰
@@ -29,10 +27,7 @@ const submitReview = (e) => {
 
 // 리뷰 저장
 const saveReview = () => {
-	localStorage.setItem(
-		`${localStorage.getItem("movieId")}`,
-		JSON.stringify(storage)
-	);
+	localStorage.setItem(storageMovieId, JSON.stringify(storage));
 	getReview();
 };
 
@@ -41,14 +36,18 @@ const getReview = () => {
 	const reviewCard = storage
 		.map((review) => {
 			return `
-        <div>
-        <span>${review.name}(${review.rating})</span>
-        <button>수정</button>
-        <button class="delete-btn" onclick="deleteReview(${review.id})">삭제</button>
+        <div class="reviews">
+        <span class="user-info">${review.name}(${review.rating})</span>
         <p>
             ${review.review}
         </p>
-        </div>`;
+        <div class="btn-group">
+        <button class="modify-btn">수정</button>
+        <button class="delete-btn" onclick="deleteReview(${review.id})">삭제</button>
+        </div>
+        <hr class="review-hr"/>
+        </div>
+        `;
 		})
 		.join("");
 	reviewGroup.innerHTML = reviewCard;
