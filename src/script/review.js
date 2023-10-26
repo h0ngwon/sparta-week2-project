@@ -42,14 +42,13 @@ const getReview = () => {
 		.map((review) => {
 			return `
         <div>
-          <span>${review.name}(${review.rating})</span>
-          <button>수정</button>
-          <button class="delete-btn" onclick="deleteReview(${review.id})">삭제</button>
-          <p>
+        <span>${review.name}(${review.rating})</span>
+        <button>수정</button>
+        <button class="delete-btn" onclick="deleteReview(${review.id})">삭제</button>
+        <p>
             ${review.review}
-          </p>
-        </div>
-  `;
+        </p>
+        </div>`;
 		})
 		.join("");
 	reviewGroup.innerHTML = reviewCard;
