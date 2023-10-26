@@ -44,7 +44,7 @@ const getReview = () => {
         <div>
           <span>${review.name}(${review.rating})</span>
           <button>수정</button>
-          <button class="delete-btn" onclick="deleteReview(${review.id})">삭제</button>
+          <button class="delete-btn" onclick="deleteReview(${review.id}, ${review.password})">삭제</button>
           <p>
             ${review.review}
           </p>
@@ -56,7 +56,12 @@ const getReview = () => {
 };
 
 // 리뷰 삭제
-const deleteReview = (id) => {
+const deleteReview = (id, password) => {
+  const deletePassword = Number(prompt('비밀번호를 입력하세요'));
+  if (deletePassword !== password) {
+    alert('비밀번호가 일치하지 않습니다.');
+    return;
+  }
   storage = storage.filter((review) => review.id !== id);
   saveReview();
 };
