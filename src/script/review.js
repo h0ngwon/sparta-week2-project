@@ -5,10 +5,7 @@ const rating = document.getElementById('rating');
 const review = document.getElementById('review');
 
 const reviewGroup = document.querySelector('.review-group');
-const deleteBtn = document.querySelectorAll('.delete-btn');
-
 let storageMovieId = localStorage.getItem('movieId');
-console.log(storageMovieId);
 let storage = JSON.parse(localStorage.getItem(`${storageMovieId}`)) || [];
 let id = storage.length;
 
@@ -43,7 +40,7 @@ const getReview = () => {
       return `
         <div>
           <span>${review.name}(${review.rating})</span>
-          <button>수정</button>
+          <button onclick="editReview(${review.id}, ${review.password})">수정</button>
           <button class="delete-btn" onclick="deleteReview(${review.id}, ${review.password})">삭제</button>
           <p>
             ${review.review}
@@ -63,6 +60,38 @@ const deleteReview = (id, password) => {
     return;
   }
   storage = storage.filter((review) => review.id !== id);
+  saveReview();
+};
+
+// 리뷰 수정
+const editReview = (id, password) => {
+  const editPassword = Number(prompt('비밀번호를 입력하세요'));
+  if (editPassword !== password) {
+    alert('비밀번호가 일치하지 않습니다.');
+    return;
+  }
+
+  const reviewToUpdate = storage.find((review) => review.id === id);
+
+  console.log(reviewToUpdate);
+  console.log(storage);
+
+  const newRating = prompt(
+    '새로운 평점을 입력하세요 (e.g. 5)',
+    reviewToUpdate.rating
+  );
+  if (newRating !== null && !isNaN(Number(newRating))) {
+    reviewToUpdate.rating = Number(newRating);
+  }
+
+  const newReviewText = prompt(
+    '새로운 리뷰를 입력하세요',
+    reviewToUpdate.review
+  );
+  if (newReviewText !== null && newReviewText.trim() !== '') {
+    reviewToUpdate.review = newReviewText;
+  }
+
   saveReview();
 };
 
