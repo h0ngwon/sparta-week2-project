@@ -1,58 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>상세페이지</title>
-		<link rel="stylesheet" href="./css/details.css" />
-		<link rel="stylesheet" href="./css/review.css" />
-	</head>
-	<body>
-		<header>
-			<div class="header">
-				<h1>Details</h1>
-			</div>
-		</header>
-		<main class="container"></main>
-		<form class="review-form">
-			<div class="input-group">
-				<div class="name">
-					<label for="name">이름</label>
-					<input id="name" type="text" />
-				</div>
-				<div class="password">
-					<label for="password">비밀번호</label>
-					<input id="password" type="text" />
-				</div>
-				<div class="rate">
-					<label for="rating">평점</label>
-					<select name="rating" id="rating">
-						<option value="⭐">⭐</option>
-						<option value="⭐⭐">⭐⭐</option>
-						<option value="⭐⭐⭐">⭐⭐⭐</option>
-						<option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
-						<option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
-					</select>
-				</div>
-				<div class="review">
-					<label for="review">리뷰 등록</label>
-					<textarea id="review" type="text"> </textarea>
-				</div>
-			</div>
-			<button class="register_btn">등록</button>
-		</form>
-    <hr/>
-		<!-- 리뷰 -->
-		<section class="review-section">
-			<h3>리뷰</h3>
-			<div class="review-group"></div>
-		</section>
-		<div class="btn_wrapper">
-			<button class="back_button" type="button">뒤로</button>
-		</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>상세페이지</title>
+    <link rel="stylesheet" href="./css/details.css" />
+    <link rel="stylesheet" href="./css/review.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header">
+        <h1>Details</h1>
+      </div>
+    </header>
+    <main class="container"></main>
+    <form class="review-form">
+      <div class="input-group">
+        <div class="name">
+          <label for="name">이름</label>
+          <input id="name" type="text" />
+        </div>
+        <div class="password">
+          <label for="password">비밀번호</label>
+          <input id="password" type="text" />
+        </div>
+        <div class="rate">
+          <label for="rating">평점</label>
+          <select name="rating" id="rating">
+            <option value="⭐">⭐</option>
+            <option value="⭐⭐">⭐⭐</option>
+            <option value="⭐⭐⭐">⭐⭐⭐</option>
+            <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
+            <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
+          </select>
+        </div>
+        <div class="review">
+          <label for="review">리뷰 등록</label>
+          <textarea id="review" type="text"></textarea>
+        </div>
+      </div>
+      <button class="register_btn">등록</button>
+    </form>
+    <hr />
+    <!-- 리뷰 -->
+    <section class="review-section">
+      <h3>리뷰</h3>
+      <div class="review-group"></div>
+    </section>
+    <div class="btn_wrapper">
+      <button class="back_button" type="button">뒤로</button>
+    </div>
 
-		<script async src="./script/apikey.js"></script>
-		<script src="./script/review.js"></script>
-		<script async src="./script/detail.js"></script>
-	</body>
+    <script async src="./script/apikey.js"></script>
+    <script src="./script/review.js"></script>
+    <script async src="./script/detail.js"></script>
+  </body>
 </html>
