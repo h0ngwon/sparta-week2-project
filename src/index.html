@@ -1,42 +1,44 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>시네마천국</title>
-    <link rel="stylesheet" href="./css/index.css" />
-  </head>
-  <body>
-    <div class="container">
-      <div class="header">
-        <p class="p1">FIND</p>
-        <p class="p2">YOUR</p>
-        <p class="p3">MOVIE.</p>
-      </div>
-      <a href="#search-form" class="scroll"
-        ><span class="scroll-span"></span> Scroll</a
-      >
-      <div class="form-wrapper">
-        <form
-          id="search-form"
-          class="search-form"
-          onsubmit="return false"
-          action=""
-        >
-          <input
-            id="title"
-            class="movie-input"
-            type="text"
-            placeholder="영화제목 입력"
-          />
-          <button id="search" class="search-btn" type="button">검색</button>
-        </form>
-      </div>
-      <div class="main"></div>
-      <button type="button" id="more" class="more">더 불러오기</button>
-    </div>
-    <div class="top"><a href="#">TOP</a></div>
-    <script defer src="./script/apikey.js"></script>
-    <script type="module" src="./script/getMovie.js"></script>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>시네마천국</title>
+		<link rel="stylesheet" href="./css/index.css" />
+	</head>
+	<body>
+		<div class="container">
+			<div class="header">
+				<p class="p1">FIND</p>
+				<p class="p2">YOUR</p>
+				<p class="p3">MOVIE.</p>
+			</div>
+			<a href="#search-form" class="scroll"
+				><span class="scroll-span"></span> Scroll</a
+			>
+			<div class="form-wrapper">
+				<form
+					id="search-form"
+					class="search-form"
+					onsubmit="return false"
+					action=""
+				>
+					<input
+						id="title"
+						class="movie-input"
+						type="text"
+						placeholder="영화제목 입력"
+					/>
+					<button id="search" class="search-btn" type="button">
+						검색
+					</button>
+				</form>
+			</div>
+			<div class="main"></div>
+			<button type="button" id="more" class="more">더 불러오기</button>
+		</div>
+		<div class="top"><a href="#">TOP</a></div>
+		<script defer src="./script/apikey.js"></script>
+		<script type="module" src="./script/getMovie.js"></script>
+	</body>
 </html>
