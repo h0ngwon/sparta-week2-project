@@ -13,7 +13,7 @@ const options = {
 
 const getMovieDetailData = async () => {
 	const data = await fetch(
-		`https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,
+		`https://api.themoviedb.org/3/movie/${movieId}?language=ko-KR`,
 		options
 	);
 	const response = await data.json();

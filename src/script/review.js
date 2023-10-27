@@ -19,6 +19,17 @@ const createReview = (e) => {
     review: review.value,
     id: id++,
   };
+
+  if (userName.value.length === 0) {
+    alert('이름을 입력하세요');
+  }
+  if (password.value.length === 0) {
+    alert('비밀번호를 입력하세요');
+  }
+  if (review.value.length === 0) {
+    alert('리뷰를 입력하세요');
+  }
+
   storage.push(userReview);
   reviewForm.reset();
   saveReview();
