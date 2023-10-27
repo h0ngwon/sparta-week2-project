@@ -1,7 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&display=swap");
 * {
 	font-family: "Nanum Gothic", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -19,26 +23,86 @@ body {
 
 .header {
 	width: 100%;
+	height: 700px;
 	text-align: center;
-	color: #00adf2;
+	font-size: 100px;
+	font-weight: 800;
+	background: linear-gradient(
+		135deg,
+		rgba(171, 220, 255, 1) 0%,
+		rgba(137, 252, 215, 1) 25%,
+		rgba(246, 110, 162, 1) 50%,
+		rgba(75, 210, 250, 1) 75%,
+		rgba(0, 173, 242, 1) 100%
+	);
+	background-size: 200%;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: ani 10s linear infinite;
 }
 
-.header a {
+.p1 {
+	margin-right: 150px;
+}
+.p2 {
+	margin-left: 50px;
+}
+
+.p3 {
+	margin-left: 300px;
+}
+
+@keyframes ani {
+	to {
+		background-position: 400%;
+	}
+}
+
+.scroll {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
 	text-decoration: none;
-	transition: 0.2s ease;
+	font-size: 20px;
+	font-weight: 900;
+    margin-bottom: 10px;
 }
 
-.header a:visited {
-	color: #00adf2;
+.scroll:visited {
+	color: #000;
 }
 
-.header a:hover {
-	color: #16566f;
-	transition: 0.2s ease;
+.scroll-span {
+	position: absolute;
+	top: 700px;
+	width: 32px;
+	height: 32px;
+	margin-top: 8px;
+	border-left: 3px solid #000;
+	border-bottom: 3px solid #000;
+	transform: rotate(-45deg);
+	box-sizing: border-box;
+    animation: bound 1s infinite;
 }
 
-.hedaer h1 {
-	width: 100%;
+.scroll:hover {
+    opacity: .2;
+}
+
+@keyframes bound {
+	0% {
+		transform: rotate(-45deg) translate(0, 0);
+	}
+
+	20% {
+		-webkit-transform: rotate(-45deg) translate(-10px, 10px);
+	}
+
+	40% {
+		-webkit-transform: rotate(-45deg) translate(0, 0);
+	}
 }
 
 .form-wrapper {
