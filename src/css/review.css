@@ -14,37 +14,37 @@
 }
 
 .name {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
 }
 
 .name label {
-  margin-right: 80px;
+	margin-right: 80px;
 }
 
 .password {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
 }
 
 .password label {
-  margin-right: 50px;
+	margin-right: 50px;
 }
 
 .rate {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
 }
 
 .rate label {
-  margin-right: 80px;
+	margin-right: 80px;
 }
 
 .rate input {
-  width: 50%;
+	width: 50%;
 }
 
 .review {
@@ -58,15 +58,15 @@
 }
 
 input {
-  font-size: 30px;
+	font-size: 30px;
 }
 
 select {
-  font-size: 30px;
+	font-size: 30px;
 }
 
 textarea {
-  font-size: 20px;
+	font-size: 20px;
 }
 
 .register_btn {
@@ -82,9 +82,9 @@ textarea {
 }
 
 .register_btn:hover {
-  background: #fff;
-  color: #161618;
-  transition: 0.3s ease;
+	background: #fff;
+	color: #161618;
+	transition: 0.3s ease;
 }
 
 .review-section {
@@ -106,7 +106,7 @@ textarea {
 }
 
 .review-group p {
-  text-align: center;
+	text-align: center;
 }
 
 hr {
@@ -116,8 +116,8 @@ hr {
 }
 
 .btn-group {
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 .delete-btn,
@@ -140,17 +140,17 @@ hr {
 }
 
 .reviews {
-  width: 100%;
+	width: 100%;
 }
 
 .review-hr {
-  width: 80%;
+	width: 80%;
 }
 
 .user-info {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
 }
 
 .back_button {
