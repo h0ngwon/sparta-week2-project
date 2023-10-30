@@ -4,8 +4,13 @@
   align-items: center;
   flex-direction: column;
   margin-top: 50px;
-  color: white;
+  color: #161618;
   width: 100%;
+}
+
+.review-title {
+  font-size: 32px;
+  font-weight: bold;
 }
 
 .name {
@@ -45,11 +50,11 @@
 .review {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .review label {
-  margin-right: 45px;
+  margin-right: 80px;
 }
 
 input {
@@ -70,7 +75,7 @@ textarea {
   padding: 15px;
   border: 3px solid #fff;
   border-radius: 50px;
-  background: #161618;
+  background: #6d84b1;
   color: #fff;
   cursor: pointer;
   transition: 0.3s ease;
@@ -86,7 +91,7 @@ textarea {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: #161618;
   flex-direction: column;
   font-size: 28px;
 }
@@ -96,7 +101,7 @@ textarea {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: white;
+  color: #161618;
   width: 100%;
 }
 
@@ -107,7 +112,7 @@ textarea {
 hr {
   width: 80%;
   margin-top: 50px;
-  border: 3px solid #fff;
+  border: 2px solid #161618;
 }
 
 .btn-group {
@@ -121,6 +126,8 @@ hr {
   padding: 20px;
   font-size: 30px;
   border-radius: 30px;
+  background: #6d84b1;
+  color: #fff;
   border: none;
   outline: none;
   cursor: pointer;
@@ -128,8 +135,8 @@ hr {
 
 .delete-btn:hover,
 .modify-btn:hover {
-  background: #6d84b1;
-  color: white;
+  background: #fff;
+  color: #161618;
 }
 
 .reviews {
@@ -144,4 +151,13 @@ hr {
   display: flex;
   justify-content: center;
   margin-top: 10px;
+}
+
+.back_button {
+  border: 1px solid #161618;
+  color: #161618;
+}
+
+.back_button:hover {
+  color: #fff;
 }
