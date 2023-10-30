@@ -1,62 +1,113 @@
-@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap');
 
 * {
-	font-family: "Nanum Gothic", sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
+  box-sizing: border-box;
 }
 
 body {
-	background: #161618;
+  background: #f0f4fb;
+  color: #161618;
+  padding: 50px;
 }
 
-.header {
-	width: 100%;
-	margin: 50px auto;
-}
-
-.header h1 {
-	text-align: center;
-	color: #fff;
+h1,
+p {
+  margin: 0;
 }
 
 .container {
-	width: 100%;
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	justify-content: center;
-	color: #fff;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 img {
-	width: 400px;
-	height: 500px;
+  width: 400px;
+  height: 500px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.info-group {
+  width: 500px;
+  height: 500px;
+  background-color: #d5e3ff;
+  padding: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.movie-title {
+  margin-bottom: 10px;
+}
+
+.tagline {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.release-date {
+  color: #66666e;
+  margin-bottom: 10px;
+}
+
+.genres span {
+  display: inline-block;
+  padding: 8px;
+  font-size: 0.8em;
+  border-radius: 10px;
+  margin-right: 5px;
+  margin-bottom: 20px;
 }
 
 .desc {
-	width: 400px;
+  word-break: keep-all;
 }
 
 .btn_wrapper {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	margin-top: 30px;
-	margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .back_button {
-	width: 300px;
-	font-size: 32px;
-	border-radius: 50px;
-	border: 2px solid #fff;
-	color: white;
-	cursor: pointer;
-	background: -webkit-linear-gradient(0deg, transparent 50%, #555555 50%);
-	background-size: 600px;
-	transition: 0.8s;
+  width: 300px;
+  padding: 6px 0;
+  font-size: 32px;
+  border-radius: 50px;
+  border: 2px solid #fff;
+  color: white;
+  cursor: pointer;
+  background: -webkit-linear-gradient(0deg, transparent 50%, #555555 50%);
+  background-size: 600px;
+  transition: 0.8s;
 }
 
 .back_button:hover {
-	background-position: 300px;
+  background-position: 300px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  img {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 20px;
+  }
+
+  .info-group {
+    width: 400px;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
 }

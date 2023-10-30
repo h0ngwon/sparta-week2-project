@@ -1,11 +1,16 @@
 .review-form {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	margin-top: 50px;
-	color: white;
-	width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px;
+  color: #161618;
+  width: 100%;
+}
+
+.review-title {
+  font-size: 32px;
+  font-weight: bold;
 }
 
 .name {
@@ -43,13 +48,13 @@
 }
 
 .review {
-	display: flex;
-	align-items: center;
-	margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
 }
 
 .review label {
-	margin-right: 45px;
+  margin-right: 80px;
 }
 
 input {
@@ -65,15 +70,15 @@ textarea {
 }
 
 .register_btn {
-	width: 25%;
-	font-size: 32px;
-	padding: 15px;
-	border: 3px solid #fff;
-	border-radius: 50px;
-	background: #161618;
-	color: #fff;
-	cursor: pointer;
-	transition: 0.3s ease;
+  width: 25%;
+  font-size: 32px;
+  padding: 15px;
+  border: 3px solid #fff;
+  border-radius: 50px;
+  background: #6d84b1;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s ease;
 }
 
 .register_btn:hover {
@@ -83,21 +88,21 @@ textarea {
 }
 
 .review-section {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	color: white;
-	flex-direction: column;
-	font-size: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #161618;
+  flex-direction: column;
+  font-size: 28px;
 }
 
 .review-group {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	color: white;
-	width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #161618;
+  width: 100%;
 }
 
 .review-group p {
@@ -105,9 +110,9 @@ textarea {
 }
 
 hr {
-	width: 80%;
-	margin-top: 50px;
-	border: 3px solid #fff;
+  width: 80%;
+  margin-top: 50px;
+  border: 2px solid #161618;
 }
 
 .btn-group {
@@ -117,19 +122,21 @@ hr {
 
 .delete-btn,
 .modify-btn {
-	margin: 20px;
-	padding: 20px;
-	font-size: 30px;
-	border-radius: 30px;
-	border: none;
-	outline: none;
-	cursor: pointer;
+  margin: 20px;
+  padding: 20px;
+  font-size: 30px;
+  border-radius: 30px;
+  background: #6d84b1;
+  color: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 
 .delete-btn:hover,
 .modify-btn:hover {
-	background: #6d84b1;
-	color: white;
+  background: #fff;
+  color: #161618;
 }
 
 .reviews {
@@ -144,4 +151,13 @@ hr {
 	display: flex;
 	justify-content: center;
 	margin-top: 10px;
+}
+
+.back_button {
+  border: 1px solid #161618;
+  color: #161618;
+}
+
+.back_button:hover {
+  color: #fff;
 }
